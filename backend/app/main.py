@@ -16,7 +16,10 @@ models.Base.metadata.create_all(bind=engine)
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "http://localhost:5173",  # dev
+        "https://proud-cliff-0518b6e0f.7.azurestaticapps.net",  # ✅ correct frontend
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
